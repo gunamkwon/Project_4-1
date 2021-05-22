@@ -4,30 +4,60 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="gallery.css">
-  <script src="gallery.js"></script>
-  <title>Photo Exhibition</title>
+  <!--<script src="gallery.js"></script>-->
+  <title>맛집 여행</title>
 </head>
 <body>
-  <nav>
-    <div id="nav_logo">나의 사계절</div>
+  <header>
+    <link rel="stylesheet" href="Css/header.css">
+    <div id="nav_logo">맛집 로드</div>
     <ul class="nav_btn">
       <button id="btn_gallery">Gallery</button>
       <button id="btn_info">Info</button>
     </ul>
+  </header>
 
-  </nav>
-  <section>
-    <div class="weather" id="spring">SPRING</div>
-    <div class="weather" id="summer">SUMMER</div>
-    <div class="weather" id="autumn">AUTUMN</div>
-    <div class="weather" id="winter">WINTER</div>
-  </section>
+  <main class="main">
+    <link rel="stylesheet" href="Css/Main.css">
+    <section class="menu">
+      메뉴
+    </section>
+    <section class="content">
+      <div class="name">식당 이름</div>
+      <div class="pic">사진</div>
+      <div class="info">메뉴</div>
+    </section>
+    
+    <section class="map_review">
+      <div class="map">
+        지도
+      </div>
+      <div class="review">
+        <nav style="background-color: red;">리뷰</nav>
+        <div class="review_content">
+          <div class="review_input">
+            <input>
+            <ul class="button_list">
+              <li><button>저장</button></li>
+              <li><button>남기기</button></li>
+            </ul>
+          </div>
+          <div class="review_star">
+            <p>star</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
   <footer>
-    <ul>
-      <li>github</li>
-      <li>instagram</li>
-    </ul>
+    <link rel="stylesheet" href="Css/footer.css">
+    <div>
+      <ul class="footer-list" >
+        <li>문의 사항</li>
+        <li>맛집로드</li>
+      </ul>
+    </div>
   </footer>
 </body>
 </html>

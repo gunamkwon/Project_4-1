@@ -1,0 +1,84 @@
+.main {
+  display: flex;
+  height: 87vh;
+  width:100vw;
+}
+
+.menu {
+  flex: 1;
+  background-color: red;
+}
+
+
+/*2nd Section*/
+.content {
+  flex: 2;
+  background-color: blue;
+  display:flex;
+  flex-direction: column;
+}
+
+.name {
+  flex: 1;
+  background-color: darkgoldenrod;
+}
+
+.pic {
+  flex: 4;
+  background-color: darkred;
+}
+
+.info {
+  flex: 7;
+  background-color: deeppink;
+}
+
+
+
+
+
+/*3rd Section*/
+.map_review {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+}
+
+.map {
+  flex: 3;
+  background-color: burlywood;
+}
+
+.review {
+  flex: 1;
+  background-color: cyan;
+}
+
+.review_content {
+  display: flex;
+}
+
+.review_input {
+  margin: 0.5em;
+  flex: 3;
+}
+
+input {
+  display:block;
+  width: 90%;
+  height: 100px;
+}
+
+.button_list {
+  margin: 0.5rem auto;
+  margin-right: 8%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  margin-left: 3px;
+}
+.review_star {
+  flex: 1;
+}
