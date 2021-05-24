@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--<script src="gallery.js"></script>-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=890199fda5029e1567427d2a0fb7f79f"></script>
+  <script src="Js/map.js" async defer></script>
   <title>맛집 여행</title>
 </head>
 <body>
   <header>
-    <link rel="stylesheet" href="Css/header.css">
-    <div id="nav_logo">맛집 로드</div>
+    <link rel="stylesheet" href="Css/Header.css">
+    <div id="nav_logo"><i class="fas fa-utensils"></i> 맛집 로드</div>
     <ul class="nav_btn">
       <button id="btn_gallery">Gallery</button>
       <button id="btn_info">Info</button>
@@ -30,10 +32,9 @@
     
     <section class="map_review">
       <div class="map">
-        지도
       </div>
       <div class="review">
-        <nav style="background-color: red;">리뷰</nav>
+        <nav>리뷰</nav>
         <div class="review_content">
           <div class="review_input">
             <input>
@@ -51,7 +52,7 @@
   </main>
   
   <footer>
-    <link rel="stylesheet" href="Css/footer.css">
+    <link rel="stylesheet" href="Css/Footer.css">
     <div>
       <ul class="footer-list" >
         <li>문의 사항</li>
@@ -59,5 +60,7 @@
       </ul>
     </div>
   </footer>
+
+
 </body>
 </html>
