@@ -3,7 +3,9 @@ let section_main = document.querySelector('.main');
 let name = document.querySelector('.name');
 let info = document.querySelector('.info');
 
+
 // Main
+
 // KAKAO MAP API
 let mapContainer = document.querySelector('.map'), // 지도를 표시할 div
     mapOption = {
@@ -14,6 +16,7 @@ let mapContainer = document.querySelector('.map'), // 지도를 표시할 div
 let map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
 Get_data(1,314);
+
 
 
 //---------------------------------------------------------------------//

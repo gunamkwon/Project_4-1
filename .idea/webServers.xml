@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ec9395a6-0d9b-411f-949d-4d14c02c66ac" name="classnet" url="http://classnet.mju.ac.kr/~s60161653/project">
+        <fileTransfer rootFolder="/data/student/s60161653/public_html/project" accessType="SFTP" host="classnet.mju.ac.kr" port="1004" sshConfigId="2f9daac6-d900-43ef-8572-b6ace2007951" sshConfig="s60161653@classnet.mju.ac.kr:1004 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
