@@ -1,0 +1,8 @@
+.footer-list {
+  display:flex;
+  height: 1vh;
+}
+
+li {
+  list-style: none;
+}

@@ -6,12 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=890199fda5029e1567427d2a0fb7f79f"></script>
-  <script src="Js/map.js" async defer></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" async defer></script>
+  <script src="./map.js" async defer></script>
+
+  </script>
   <title>맛집 여행</title>
 </head>
 <body>
   <header>
-    <link rel="stylesheet" href="Css/Header.css">
+    <link rel="stylesheet" href="Header.css">
     <div id="nav_logo"><i class="fas fa-utensils"></i> 맛집 로드</div>
     <ul class="nav_btn">
       <button id="btn_gallery">Gallery</button>
@@ -20,13 +23,16 @@
   </header>
 
   <main class="main">
-    <link rel="stylesheet" href="Css/Main.css">
+    <link rel="stylesheet" href="Main.css">
     <section class="menu">
-      지역선택
+      <ul>
+        <li>용산구</li>
+        <li>광진구</li>
+      </ul>
     </section>
     <section class="content">
       <div class="name">식당을 선택하세요!!</div>
-      <div class="pic">사진</div>
+      <img class="pic" id="_pic">
       <div class="info">메뉴</div>
     </section>
     
@@ -54,7 +60,7 @@
   </main>
   
   <footer>
-    <link rel="stylesheet" href="Css/Footer.css">
+    <link rel="stylesheet" href="Footer.css">
     <div>
       <ul class="footer-list" >
         <li>문의 사항</li>
