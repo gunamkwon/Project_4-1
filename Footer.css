@@ -1,8 +1,14 @@
 .footer-list {
+  border-top: solid 1px;
   display:flex;
-  height: 1vh;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
 }
 
-li {
+.footer-list > li {
   list-style: none;
+  padding-right: 1.5rem;
+  font-size: 1.25rem;
+  margin: 1rem;
 }

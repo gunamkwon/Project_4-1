@@ -1,17 +1,14 @@
 :root {
-  --background-color: #484848;
-  --nav-color: #212121;
+  --header-height: 7vh;
 }
 
 body {
-  background-color: var(--background-color);
-  color: white;
   margin: 0;
 }
+
 header {
   width: 100%;
-  height: 7vh;
-  background-color: var(--nav-color);
+  height: var(--header-height);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,7 +17,6 @@ header {
 #nav_logo {
   font-size: 2rem;
   padding-left: 1rem;
-  color: white;
 }
 
 .nav_btn {

@@ -13,62 +13,46 @@
   <title>맛집 여행</title>
 </head>
 <body>
-  <header>
-    <link rel="stylesheet" href="Header.css">
-    <div id="nav_logo"><i class="fas fa-utensils"></i> 맛집 로드</div>
-    <ul class="nav_btn">
-      <button id="btn_gallery">Gallery</button>
-      <button id="btn_info">Info</button>
-    </ul>
-  </header>
-
   <main class="main">
     <link rel="stylesheet" href="Main.css">
     <section class="menu">
       <ul>
-        <li>용산구</li>
-        <li>광진구</li>
+        <li id="nav_logo">맛집 로드</li>
+        <hr>
+        <li id="Yongsan"><img class="icon" src="./yongsan.png"><p>용산구</p></li>
+        <hr>
+        <li id="Gwangjin"><img class="icon" src="./gwangjin.png"><p>광진구</p></li>
       </ul>
     </section>
-    <section class="content">
-      <div class="name">식당을 선택하세요!!</div>
-      <img class="pic" id="_pic">
-      <div class="info">메뉴</div>
-    </section>
-    
-    <section class="map_review">
-      <div class="map_section">
-        <nav class="map_nav">지도</nav>
-        <div class="map"></div>
-      </div>
-      <div class="review">
-        <nav>리뷰</nav>
-        <div class="review_content">
-          <div class="review_input">
-            <input>
-            <ul class="button_list">
-              <li><button>저장</button></li>
-              <li><button>남기기</button></li>
-            </ul>
-          </div>
-          <div class="review_star">
-            <p>star</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="map"></section>
   </main>
-  
-  <footer>
+
+  <section class="content">
+    <div class="name">식당을 선택하세요!!</div>
+    <img class="pic" id="_pic">
+    <div class="info"><hr style="margin: 0.1rem 0 0.5rem 0;"></hr>
+      <ul>
+        <li id="location"><i class="fas fa-map-marker-alt"></i>위치</li>
+        <hr>
+        <li id="phone_num"><i class="fas fa-phone-alt"></i>전화번호</li>
+        <hr>
+        <li id="kind_of"><i class="fas fa-utensils"></i>종류</li>
+        <hr>
+        <li id="food_menu"><i class="fab fa-elementor"></i>메뉴</li>
+        <hr>
+        <li id="information"><i class="fas fa-info"></i>설명</li>
+      </ul>
+    </div>
+  </section>
+
+  <div style="margin:0;" id="btn_content"><i class="fas fa-angle-double-left"></i></div>
+
+  <footer style="height: 1vh">
     <link rel="stylesheet" href="Footer.css">
-    <div>
       <ul class="footer-list" >
         <li>문의 사항</li>
         <li>맛집로드</li>
       </ul>
-    </div>
   </footer>
-
-
 </body>
 </html>
