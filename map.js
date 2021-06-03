@@ -2,7 +2,7 @@
 const section_main = document.querySelector('.main');
 const name = document.querySelector('.name');
 
-const location = document.querySelector('#location');
+const loca = document.querySelector('#location');
 const phone_num = document.querySelector('#phone_num');
 const kind_of_food = document.querySelector('#kind_of');
 const food_menu = document.querySelector('#food_menu');
@@ -17,8 +17,6 @@ const Gwangjin_key = 'hY9%2BQxQPf%2FOL72XsdUPcl%2Fy53D48ugqZhkQaY%2Ft9%2Bu2%2BW1
 
 let temp_latitude= 37.552965602230366, temp_longitude = 126.97252241992608;
 
-// Main
-
 // KAKAO MAP API
 let mapContainer = document.querySelector('.map'), // 지도를 표시할 div
     mapOption = {
@@ -30,7 +28,7 @@ let map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
 
 
 Yongsan.addEventListener('click', ()=> {
-    Get_data(yongsan_url,1,314,yongsan_key);
+    Get_data(yongsan_url,3,60,yongsan_key);
 
 });
 
@@ -76,10 +74,31 @@ function MakeMarker(data) {
 
     marker.setMap(map);
     kakao.maps.event.addListener(marker, 'click', function() {
-        name.innerHTML = data.업소명;
-        location.innerText = data.주소;
-        phone_num.innerText = data.전화번호;
-        food_menu.innerText = data.주요요리;
+        name.innerHTML = data["업소명"];
+        ChangeInnerHTML(loca,'<i class="fas fa-map-marker-alt"></i>',data["주소1"], data["소재지(도로명)"]);
+        ChangeInnerHTML(phone_num,'<i class="fas fa-phone-alt"></i>', data["전화번호"]);
+        ChangeInnerHTML(food_menu,'<i class="fab fa-elementor"></i>', data["주요요리"], data["주취급음식"]);
+        ChangeInnerHTML(information,'<i class="fas fa-info"></i>', data["사장님이자랑하는내가게한마디"]);
+
+        // 마커누르면 보이기
+        if( $(".content").css('visibility') == 'hidden'
+            && $("#close_content").css('visibility') == 'hidden'
+            && $("#open_content").css('visibility') == 'hidden') {
+
+            $(".content").css('visibility','visible');
+            $("#close_content").css('visibility','visible');
+            $('#open_content').css('visibility','visible');
+        }
+
+        $('#close_content').click(function () {
+            $(".content").animate({left: '-450px'},500);
+            $("#close_content").animate({left:'-450px'},500);
+        });
+
+        $('#open_content').click(function () {
+            $(".content").animate({left: '211px'},500);
+            $("#close_content").animate({left:'661px'},500);
+        });
 
         $.ajax({
             method: "GET",
@@ -93,3 +112,20 @@ function MakeMarker(data) {
     });
 }
 
+//--------------------------------------------------------------//
+// Function ChangeInnerHTML(latitude,longitude)
+// target: tag_id, icon: icon, data1: Yong-san Json's attribute, data2: Gwang-jin Json's attribute
+// Json file doesn't have coincidence
+//--------------------------------------------------------------//
+function ChangeInnerHTML(target, icon, data1, data2) {
+    if(data2 === undefined)
+        if(data1 == '' || data1 == undefined)
+            target.innerHTML = icon + '정보를 입력하세요';
+        else
+            target.innerHTML = icon + data1;
+    else
+        if(data2 == '' || data2 == undefined)
+            target.innerHTML = icon + '정보를 입력하세요';
+        else
+            target.innerHTML = icon + data2;
+}
