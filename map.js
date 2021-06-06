@@ -4,7 +4,6 @@ const name = document.querySelector('.name');
 
 const loca = document.querySelector('#location');
 const phone_num = document.querySelector('#phone_num');
-const kind_of_food = document.querySelector('#kind_of');
 const food_menu = document.querySelector('#food_menu');
 const information = document.querySelector('#information');
 
@@ -16,7 +15,6 @@ const Gwangjin_url = 'https://api.odcloud.kr/api/15052408/v1/uddi:611c5470-ad94-
 const Gwangjin_key = 'hY9%2BQxQPf%2FOL72XsdUPcl%2Fy53D48ugqZhkQaY%2Ft9%2Bu2%2BW1%2BcMRMXNUfRPMYoCBcdkzqt38gAlu9jUZx1hRvipw%3D%3D';
 
 let temp_latitude= 37.552965602230366, temp_longitude = 126.97252241992608;
-
 // KAKAO MAP API
 let mapContainer = document.querySelector('.map'), // 지도를 표시할 div
     mapOption = {
@@ -25,14 +23,16 @@ let mapContainer = document.querySelector('.map'), // 지도를 표시할 div
     };
 
 let map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
+let markers = [];
 
 Yongsan.addEventListener('click', ()=> {
+    hideMarkers();
     Get_data(yongsan_url,3,60,yongsan_key);
 
 });
 
 Gwangjin.addEventListener('click', () => {
+    hideMarkers();
     Get_data(Gwangjin_url,1,48,Gwangjin_key);
 })
 
@@ -48,12 +48,10 @@ function Get_data(_url,_page, per_page,_key) {
             return response.json();
         })
         .then(function(myJson) {
-            console.log(JSON.stringify(myJson.totalCount));
-            for(let i = 0; i < myJson.totalCount; i++)   {
+            for(let i = 0; i < myJson.currentCount; i++)   {
                 MakeMarker(myJson.data[i]);
             }
-            let MoveTo = new kakao.maps.LatLng(temp_latitude,temp_longitude);
-            map.setCenter(MoveTo);
+            map.setCenter(new kakao.maps.LatLng(temp_latitude,temp_longitude));
         });
 }
 
@@ -64,15 +62,15 @@ function Get_data(_url,_page, per_page,_key) {
 // Set Maker on Map
 //--------------------------------------------------------------//
 function MakeMarker(data) {
-    temp_latitude = data.위도;
-    temp_longitude = data.경도;
-    let markerPosition = new kakao.maps.LatLng(data.위도,data.경도);
-    let marker = new kakao.maps.Marker({
+    temp_latitude = data["위도"];
+    temp_longitude = data["경도"];
+    let markerPosition = new kakao.maps.LatLng(data["위도"],data["경도"]);
+    marker = new kakao.maps.Marker({
         position: markerPosition
     });
 
-
     marker.setMap(map);
+    markers.push(marker);
     kakao.maps.event.addListener(marker, 'click', function() {
         name.innerHTML = data["업소명"];
         ChangeInnerHTML(loca,'<i class="fas fa-map-marker-alt"></i>',data["주소1"], data["소재지(도로명)"]);
@@ -128,4 +126,21 @@ function ChangeInnerHTML(target, icon, data1, data2) {
             target.innerHTML = icon + '정보를 입력하세요';
         else
             target.innerHTML = icon + data2;
+}
+
+//--------------------------------------------------------------//
+// Function setMarkers(map)
+// Function hideMarkers
+//
+// Markers 배열 돌면서 맵에 있는 marker들을 모두 없애주기 위한 함수
+//--------------------------------------------------------------//
+function setMarkers(map) {
+    for (var i in markers) {
+        markers[i].setMap(map);
+    }
+}
+
+// "마커 감추기" 버튼을 클릭하면 호출되어 배열에 추가된 마커를 지도에서 삭제하는 함수입니다
+function hideMarkers() {
+    setMarkers(null);
 }
